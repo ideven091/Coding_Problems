@@ -22,7 +22,7 @@ public class ProblemsOnQueues {
 
     public static int minimumMoves(List<String> grid, int startX, int startY, int goalX, int goalY) {
         // Write your code here
-
+    return 0;
     }
     public static void main(String[] args) throws IOException {
         Queue<Integer> queue = new LinkedList<>();
