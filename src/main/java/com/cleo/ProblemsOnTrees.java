@@ -56,22 +56,39 @@ class BinaryTree{
             }
         return root;
         }
+    static boolean isIdentical(Node root1, Node root2) {
+        // C
+        if(root1==null&&root2==null)
+            return true;
+        if(root1==null||root2==null)
+            return false;
+        if(root1.data!= root2.data)
+            return false;
 
+        if(!isIdentical(root1.left,root2.left)||!isIdentical(root1.right,root2.right))
+            return false;
+        return true;
+    }
+
+    // FIXME: 30/01/22
     public static void topView(Node root) {
 
       if(root==null)
           return;
       else{
           while(root!=null) {
-              if(root.left==null&&root.right==null){
-                  System.out.println(root.data);
-                  break;
+              if(root.left==null||root.right==null){
+                  System.out.print(root.data + " ");
+
               }
               System.out.print(root.data + " ");
-              if (root.right!=null)
+
+              if (root.right!=null) {
                   root = root.right;
-              else if(root.left!=null)
+              }
                   root = root.left;
+//                  System.out.println(root.data + " ");
+
           }
       }
 
@@ -140,6 +157,12 @@ class BinaryTree{
           return 1+ depth(root.left, val);
 
     }
+
+    public static void minDepthAncestor(Node root,int depth){
+      while(depth(root,root.data)<depth){
+
+      }
+    }
     /**
      *
      * @param root Root of the tree
@@ -151,11 +174,30 @@ class BinaryTree{
         // Write your code here.
         if(root==null)
             return null;
-        else{
-            if(root.data<v1){}
-            // TODO: 24/01/22
+        boolean flag1 = false, flag2=false;
+        if(root.data<v1)
+            flag1 = true;
+        if(root.data<v2)
+            flag2=true;
+
+        int n1 = depth(root,v1);
+        int n2 = depth(root, v2);
+        int min = Math.min(n1,n2);
+
+      //  System.out.println(min);
+        while(depth(root,root.data)!=min){
+          //  System.out.println(depth(root, root.data));
+
+            if(root.left==null||root.right==null)
+
+                return root;
+            if(!flag1)
+                root = root.right;
+            else
+                root = root.left;
         }
-        return null;
+        return root;
+
     }
 
     public static void inOrder(Node root){
@@ -184,13 +226,22 @@ class BinaryTree{
     }
     public static void main(String[] args) {
         Node root = new Node(1);
-
+        Node root2 = new Node(1);
         insert(root,1);
         insert(root,2);
         insert(root,5);
         insert(root,6);
         insert(root, 3);
         insert(root, 4);
+        insert(root2,2);
+        insert(root2,3);
+        topView(root2);
+        System.out.println();
+        topView(root);
+        Node answer = lca(root,5,6);
+        System.out.println(answer.data);
+        System.out.println("Is identical?");
+        System.out.println(isIdentical(root,root2));
         inOrder(root);
         System.out.println();
         preOrder(root);
