@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class ExecuteAround {
 
-    private static final String FILE = Objects.requireNonNull(ExecuteAround.class.getResource("./data.txt")).getFile();
+    private static final String FILE = Objects.requireNonNull(ExecuteAround.class.getResource("src/main/resources/data.txt")).getFile();
     @FunctionalInterface
     public interface BufferedReaderProcessor{
         String process(BufferedReader b) throws IOException;

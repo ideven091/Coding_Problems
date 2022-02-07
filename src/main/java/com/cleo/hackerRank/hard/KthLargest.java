@@ -12,6 +12,7 @@ public class KthLargest {
     public static void  kthLargest(int query, int k){
 
       //  System.out.println();
+
     }
     public static void main(String[] args) throws Exception{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
