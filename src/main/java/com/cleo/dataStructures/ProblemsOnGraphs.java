@@ -70,3 +70,8 @@ public class ProblemsOnGraphs {
         System.out.println(bfsOfGraph(V,adj));
     }
 }
+
+
+class KittyCalculations{
+
+}

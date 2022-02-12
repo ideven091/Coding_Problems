@@ -427,3 +427,60 @@ public class ProblemsOnTrees {
 
 
 }
+
+//Not a binary tree
+/*
+class KittyCalculationOnTrees{
+
+    private static class Node{
+        int data;
+        Node left;
+        Node right;
+
+        public Node(int data) {
+            this.data = data;
+            this.left = null;
+            this.right = null;
+        }
+    }
+
+    public Node insert(Node root, int data){
+        if(root==null)
+            root = new Node(data);
+        if(data<root.data)
+            root.left = insert(root.left,data);
+        else
+            root.right = insert(root.right,data);
+        return root;
+    }
+
+    public Node lca(Node root, int v1, int v2){
+        if(root==null)
+            return null;
+        if(root.data==v1||root.data==v2)
+            return root;
+        Node lca1 = lca(root.left,v1,v2);
+        Node lca2 = lca(root.right,v1,v2);
+        if(lca1!=null&&lca2!=null)
+            return root;
+        if(lca1!=null)
+            return lca1;
+        else
+            return lca2;
+    }
+
+    // Calculate the horizontal distance between nodes starting from lca
+
+
+    public int distance(Node root, int v1, int v2){
+        Node leastCommonAncestor = lca(root,v1,v2);
+
+
+    }
+    public int queryResult(int[] nodes){
+
+    }
+
+}
+
+ */

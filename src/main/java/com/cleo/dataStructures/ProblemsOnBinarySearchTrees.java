@@ -1,9 +1,6 @@
 package com.cleo.dataStructures;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 class BinarySearchTree{
 
@@ -22,6 +19,15 @@ class BinarySearchTree{
         }
     }
 
+    private static class Pair{
+        Node node; int data;
+
+        public Pair(Node node, int data) {
+            this.node = node;
+            this.data = data;
+        }
+    }
+
     private static Node root;
     public Node insert(Node root, int data){
         if(root==null)
@@ -33,7 +39,20 @@ class BinarySearchTree{
 
         return root;
     }
+    static int prev = Integer.MIN_VALUE;
+    boolean isBST(Node root) {
+        // code here.
+        int min=Integer.MIN_VALUE;
+        int max=Integer.MAX_VALUE;
+        return BST(root,min,max);
 
+    }
+    private static boolean BST(Node root, int min, int max) {
+        if (root==null){
+            return true;
+        }
+        return root.data>min && root.data<max && BST(root.left,min,root.data) && BST(root.right,root.data,max);
+    }
     public static boolean search(Node root,int data){
         if(root==null)
             return false;
@@ -44,7 +63,29 @@ class BinarySearchTree{
         else
             return search(root.right,data);
     }
+    public static void topView(Node root) {
+        Map<Integer,Integer> map = new TreeMap<>();
+        Queue<Pair> current = new LinkedList<>();
+        current.add(new Pair(root,0));
+        map.put(0,root.data);
+        while(!current.isEmpty()) {
+            Pair u = current.poll();
+            Node node = u.node;
+            int height = u.data;
+            if(map.get(height)==null)
+            map.put(height, node.data);
+            if(node.left!=null){
+                current.add(new Pair(node.left,height-1));
 
+            }
+            if(node.right!=null)
+                current.add(new Pair(node.right,height+1));
+        }
+        for(Map.Entry<Integer,Integer> m: map.entrySet()){
+            System.out.print(m.getValue() + " ");
+        }
+        System.out.println();
+    }
     public Node getMax(Node root){
         if(root==null)
             return null;
@@ -70,6 +111,21 @@ class BinarySearchTree{
         inOrder2(root.left);
         System.out.println(root.data);
         inOrder2(root.right);
+
+    }
+
+    public Node lcaV2(Node root, int v1, int v2){
+        if(root==null)
+            return null;
+         if(root.data==v1||root.data==v2)
+            return root;
+        Node lca1 = lcaV2(root.left,v1,v2);
+        Node lca2 = lcaV2(root.right,v1,v2);
+        if(lca1==null&&lca2==null)
+            return root;
+        if(lca1!=null)
+            return lca1;
+        else return lca2;
 
     }
 
@@ -175,19 +231,21 @@ class BinarySearchTree{
         tree2.insert(root2,35);
         tree.insert(root,1);
         tree.insert(root,2);
-        tree.insert(root,10);
+        tree.insert(root,1000);
         tree.insert(root,20);
         tree.insert(root,15);
         tree.insert(root,5);
         tree.insert(root,35);
         tree.inOrder2(root);
-        System.out.println(search(root,4));
+        System.out.println("Checking for binary tree");
+        System.out.println(tree.isBST(root));
+   /*     System.out.println(search(root,4));
         System.out.println(findCommon(root,root2));
         System.out.println(tree.levelOrder(root));
         System.out.println(tree.lca(root,5,15).data);
         System.out.println(tree.printNearNodes(root,6,26));
         System.out.println(tree.height(root));
-
+*/
     }
 }
 class MaximalPairs{

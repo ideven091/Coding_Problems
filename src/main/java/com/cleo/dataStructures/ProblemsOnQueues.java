@@ -6,8 +6,71 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
+class StackQueue
+{
+    Stack<Integer> s1 = new Stack<Integer>();
+    Stack<Integer> s2 = new Stack<Integer>();
 
-public class ProblemsOnQueues {
+    //Function to push an element in queue by using 2 stacks.
+    void Push(int x)
+    {
+        // Your code here
+        s1.push(x);
+        s2.push(x);
+
+
+    }
+
+
+    //Function to pop an element from queue by using 2 stacks.
+    int Pop()
+    {
+        // Your code here
+
+        return s2.pop();
+    }
+
+    public static void main(String[] args) {
+        StackQueue stackQueue = new StackQueue();
+       stackQueue.Push(1);
+       stackQueue.Push(2);
+    //   stackQueue.Pop();
+     //   stackQueue.s1.push(1);
+
+          System.out.println(stackQueue.Pop());
+    }
+}
+class MyQueue {
+
+    int front, rear;
+    int[] arr = new int[100005];
+
+    MyQueue() {
+        front = 0;
+        rear = 0;
+    }
+
+    //Function to push an element x in a queue.
+    void push(int x) {
+        // Your code here
+        arr[front++] = x;
+    }
+
+    //Function to pop an element from queue and return that element.
+    int pop() throws Exception{
+        // Your code here
+        if(rear<=front)
+        return arr[rear++];
+        else
+            return -1;
+    }
+
+    public static void main(String[] args) {
+
+    }
+}
+    public class ProblemsOnQueues {
     /*
      * Complete the 'minimumMoves' function below.
      *

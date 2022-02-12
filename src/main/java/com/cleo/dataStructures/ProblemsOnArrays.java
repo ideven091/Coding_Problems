@@ -75,6 +75,25 @@ class Solution12 {
 
 
 public class ProblemsOnArrays {
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+        // Write your code here
+        for (int i = 0; i < grades.size(); i++) {
+            if (grades.get(i) % 5 != 0) {
+                int answer = grades.get(i) % 5;
+                if (answer >= 3)
+                    if ((5 - answer) + grades.get(i) >= 40) {
+
+                        //int answer = grades.get(i)%5;
+
+                        grades.set(i, (5 - answer) + grades.get(i));
+                    }
+            }
+
+        }
+        return grades;
+
+    }
+
    static int tour(int[] petrol, int[] distance) {
         // Your code here
         int index = -1, sum = 0, interval = 0;
