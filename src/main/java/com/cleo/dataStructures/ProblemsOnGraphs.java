@@ -10,7 +10,7 @@ public class ProblemsOnGraphs {
 
 
     //DAG, Directed Weighted Acyclic Graph
-    public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
+    public static ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
         // Code here
         ArrayList<Integer> bfsGraph = new ArrayList<>();
         for (int i = 0; i < adj.size(); i++) {
@@ -32,7 +32,7 @@ public class ProblemsOnGraphs {
     static void addEdge(ArrayList<ArrayList<Integer>> adj, int u, int v)
     {
         adj.get(u).add(v);
-        adj.get(v).a dd(u);
+        adj.get(v).add(u);
     }
     public ArrayList<ArrayList<Integer>> printGraph(
             int V, ArrayList<ArrayList<Integer>> adj) {
