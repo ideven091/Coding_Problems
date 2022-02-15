@@ -19,7 +19,34 @@ class SinglyLinkedList{
             //   this.next = next;
         }
     }
+    private int N;
+    boolean isPalindrome(Node head) {
+        //You
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < N/2; i++) {
+            stack.push(head.data);
+            head = head.next;
 
+        }
+        for (int i = N/2; i < N; i++) {
+            if(head.data!=stack.pop())
+                return false;
+            head = head.next;
+        }
+        return true;
+    }
+
+    // TODO: 13/02/22
+    boolean isPalindromeV2(Node root){
+        Node current = root;
+        while(root!=null){
+            current.next = root;
+            root = root.next;
+
+
+        }
+        return false;
+    }
     private Node root;
 
     public int getLength(){
@@ -63,6 +90,13 @@ class SinglyLinkedList{
 
     }
 
+    public Node reverse(Node root){
+        if(root==null)
+            return null;
+        root.next = reverse(root);
+        return root;
+    }
+
     public void insertAtIth(int data, int position){
         Node current = root, prev = root;
         int p = 0;
@@ -98,6 +132,16 @@ class SinglyLinkedList{
         Stack<String> stack = new Stack<>();
        String pair = "()";
        return null;
+    }
+
+    public static void main(String[] args) {
+        SinglyLinkedList list = new SinglyLinkedList();
+        Node root = new Node(1);
+        list.insertAtBeginning(1);
+        list.insertAtEnd(2);
+        list.insertAtEnd(3);
+        list.printList();
+
     }
 
 }

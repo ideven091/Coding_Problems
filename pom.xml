@@ -14,7 +14,13 @@
     </properties>
     <dependencies>
 
-    <dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.35</version>
+        </dependency>
+        <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
         <version>4.5.13</version>
