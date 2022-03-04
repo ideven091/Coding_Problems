@@ -126,18 +126,18 @@ class Sudoku {
     private static final int N = 4;
 
 
-    static boolean isSafe(int[][] grid,int i, int j, int n) {
+    static boolean isSafe(int[][] grid,int row, int column, int n) {
 
         for (int k = 0; k < N; k++) {
-            if (grid[k][j] == n || grid[i][k] == n)
+            if (grid[k][column] == n || grid[row][k] == n)
                 return false;
         }
-        int s = 2;
-        int rs = i - i % s;
-        int cs = j - j % s;
+        int grid1= (int)(Math.sqrt(N));
+        int rs = row - row % grid1;
+        int cs = column - column % grid1;
 
-        for (i = 0; i < s; i++) {
-            for (j = 0; j < s; j++) {
+        for (int i = 0; i < grid1; i++) {
+            for (int j = 0; j < grid1; j++) {
                 if (grid[i + rs][j + cs] == n)
                     return false;
             }
@@ -162,7 +162,7 @@ class Sudoku {
             if(!isEmpty)
                 break;
         }
-        System.out.println(i+ " " + j);
+      //  System.out.println(i+ " " + j);
         if(isEmpty)
             return true;
         for (int n = 1; n <= N; n++) {
@@ -193,7 +193,7 @@ class Sudoku {
 
     public static void main(String[] args) {
         int[][] grid = {
-                {1, 0, 3, 0},
+                {1, 0, 3, 4},
                 {0, 0, 2, 1},
                 {0, 1, 0, 2},
                 {2, 4, 0, 0}
@@ -203,5 +203,49 @@ class Sudoku {
 
     }
 }
+
+class PermutationsOfString{
+
+    public static boolean isSafe(String str, int l, int i, int r){
+        if(l!=0&&str.charAt(l-1)=='A'&&str.charAt(i)=='B')
+            return false;
+        return r != (l + 1) || str.charAt(i) != 'A' || str.charAt(l) != 'B';
+    }
+
+    public static void permute(String str,int l, int r) {
+
+        if(l==r) {
+
+                System.out.print(str+ " ");
+
+
+            //return;
+        }else {
+
+            for(int i=l;i<=r;i++) {
+                if(isSafe(str,l,i,r)) {
+                    str = new String(swap(str, i, l));
+                    permute(str, l + 1, r);
+                    str = new String(swap(str, i, l));
+                }
+            }
+        }
+    }
+    public static char[] swap(String str, int i, int j) {
+        char[] ch = str.toCharArray();
+        char temp = ch[i];
+        ch[i]=ch[j];
+        ch[j]=temp;
+        return ch;
+    }
+
+    public static void main(String[] args) {
+       String str = "ABC";
+       permute(str,0,str.length()-1);
+
+    }
+
+}
+
 public class BackTracking {
 }
