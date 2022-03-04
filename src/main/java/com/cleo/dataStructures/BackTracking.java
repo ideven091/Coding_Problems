@@ -4,19 +4,16 @@ package com.cleo.dataStructures;
 class GFG {
     public static boolean isSafe(int[][] board,int row, int col, int num) {
 
-        for (int d = 0; d < board.length; d++)
-        {
+        for (int d = 0; d < board.length; d++) {
 
             if (board[row][d] == num) {
                 return false;
             }
         }
 
-        for (int r = 0; r < board.length; r++)
-        {
+        for (int r = 0; r < board.length; r++) {
 
-            if (board[r][col] == num)
-            {
+            if (board[r][col] == num) {
                 return false;
             }
         }
@@ -24,14 +21,9 @@ class GFG {
         int boxRowStart = row - row % sqrt;
         int boxColStart = col - col % sqrt;
 
-        for (int r = boxRowStart;
-             r < boxRowStart + sqrt; r++)
-        {
-            for (int d = boxColStart;
-                 d < boxColStart + sqrt; d++)
-            {
-                if (board[r][d] == num)
-                {
+        for (int r = boxRowStart; r < boxRowStart + sqrt; r++) {
+            for (int d = boxColStart; d < boxColStart + sqrt; d++) {
+                if (board[r][d] == num) {
                     return false;
                 }
             }
@@ -87,10 +79,8 @@ class GFG {
     }
 
     public static void print(int[][] board, int N) {
-        for (int r = 0; r < N; r++)
-        {
-            for (int d = 0; d < N; d++)
-            {
+        for (int r = 0; r < N; r++) {
+            for (int d = 0; d < N; d++) {
                 System.out.print(board[r][d]);
                 System.out.print(" ");
             }
@@ -133,15 +123,10 @@ class GFG {
  */
 class Sudoku {
 
-    private final int N = 4;
-    private int[][] grid = {
-            {1, 0, 3, 0},
-            {0, 0, 2, 1},
-            {0, 1, 0, 2},
-            {2, 4, 0, 0}
-    };
+    private static final int N = 4;
 
-    boolean isSafe(int i, int j, int n) {
+
+    static boolean isSafe(int[][] grid,int i, int j, int n) {
 
         for (int k = 0; k < N; k++) {
             if (grid[k][j] == n || grid[i][k] == n)
@@ -162,23 +147,31 @@ class Sudoku {
     }
 
 
-    boolean solve() {
+   static boolean solve(int[][] grid) {
         int i = 0, j = 0;
+        int row=-1,col=-1;
+        boolean isEmpty =true;
         for (i = 0; i < N; i++) {
             for (j = 0; j < N; j++) {
-                if (grid[i][j] == 0)
+                if (grid[i][j] == 0) {
+                    row=i;col=j;
+                    isEmpty=false;
                     break;
+                }
             }
+            if(!isEmpty)
+                break;
         }
-        if (i == N && j == N)
+        System.out.println(i+ " " + j);
+        if(isEmpty)
             return true;
-
         for (int n = 1; n <= N; n++) {
-            if (isSafe(i, j, n)) {
-                grid[i][j] = n;
-                if (solve())
+            if (isSafe(grid,row, col, n)) {
+                grid[row][col] = n;
+                if (solve(grid))
                     return true;
-                grid[i][j] = 0;
+                else
+                grid[row][col] = 0;
 
             }
 
@@ -188,9 +181,25 @@ class Sudoku {
 
     }
 
+    public static void print(int[][] grid){
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid.length; j++) {
+                System.out.print(grid[i][j]+ " ");
+            }
+            System.out.println();
+        }
+    }
+
 
     public static void main(String[] args) {
-
+        int[][] grid = {
+                {1, 0, 3, 0},
+                {0, 0, 2, 1},
+                {0, 1, 0, 2},
+                {2, 4, 0, 0}
+        };
+        solve(grid);
+        print(grid);
 
     }
 }
