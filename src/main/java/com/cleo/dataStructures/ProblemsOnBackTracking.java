@@ -1,6 +1,7 @@
 package com.cleo.dataStructures;
 
-public class ProblemsOnBackTracking {
+class MaximumNumberAfterKSwaps{
+
     public String findMaximumNum(String s, int k){
         max = Long.parseLong(s);
         f(s,k);
@@ -8,43 +9,53 @@ public class ProblemsOnBackTracking {
         return Long.toString(max);
     }
 
-    long max;
+    long max=Long.MIN_VALUE;
 
-    public void f(String s, int k){
-        if(k == 0)
+    public void f(String s, int k) {
+        if (k == 0)
             return;
-        if(s.compareTo(String.valueOf(Long.MAX_VALUE))<0) {
-          //  System.out.println(Long.parseLong(s));
+        if (s.compareTo(String.valueOf(Long.MAX_VALUE)) < 0) {
+            //   System.out.println(Long.parseLong(s));
             max = Math.max(Long.parseLong(s), max);
-         //   System.out.println(max);
+            //System.out.println(max);
         }
 
 
         int n = s.length();
 
-        for(int i=0;i<n-1;i++){
-            for(int j=i+1;j<n;j++){
-                if(s.charAt(j)>s.charAt(i)){
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
 
-                    s = swap(s,i,j);
-                    f(s,k-1);
-                    s = swap(s,i,j);
+
+                if (s.charAt(i) < s.charAt(j)) {
+
+                    s = new String(swap(s, i, j));
+                  //  System.out.println(s);
+                    f(s, k - 1);
+                    s = new String(swap(s, i, j));
                 }
             }
         }
     }
 
-    public String swap(String s, int i,int j){
-        char[] c = s.toCharArray();
 
-        char ch = c[i];
-        c[i] = c[j];
-        c[j] = ch;
 
-        return String.valueOf(c);
+    public static char[] swap(String str, int i, int j) {
+        char[] ch = str.toCharArray();
+        char temp = ch[i];
+        ch[i]=ch[j];
+        ch[j]=temp;
+        return ch;
     }
+
     public static void main(String[] args) {
-        String str = "4867504573120052493";
-        System.out.println(new ProblemsOnBackTracking().findMaximumNum(str,3));
+        String str = "3435335";
+        System.out.println(new MaximumNumberAfterKSwaps().findMaximumNum(str,3));
+    }
+}
+public class ProblemsOnBackTracking {
+
+    public static void main(String[] args) {
+
     }
 }
