@@ -28,6 +28,25 @@ class NthFibonacciNumber{
     }
 }
 
+class LongestCommonSubsequence{
+
+    public static int lcs(String X, String Y, int N, int M){
+        if(N==0||M==0)
+            return 0;
+        else if(X.charAt(N-1)==Y.charAt(M-1))
+            return 1+lcs(X,Y,N-1,M-1);
+        else
+            return Math.max(lcs(X,Y,N-1,M),lcs(X,Y,N,M-1));
+    }
+
+    public static void main(String[] args) {
+        String a = "ABCDEFEBG";
+        String b = "BDAFE";
+        System.out.println(lcs(a,b,a.length(),b.length()));
+    }
+
+}
+
 public class DynamicProgrammingProblems {
 
 

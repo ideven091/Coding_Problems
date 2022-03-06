@@ -150,7 +150,147 @@ class PermutationsOfString{
  */
 class RatInAMaze{
 
+    public static boolean ratCanReachDestination(int[][] board, int N){
+      int[][] sol= new int[N][N];
 
+
+      if(solveMaze(board,0,0,sol,N)) {
+          printMaze(sol,N);
+          return true;
+      }
+      else{
+          return false;
+      }
+    }
+    static boolean isSafe(int[][] board, int i, int j, int N){
+        return i<N && j<N && board[i][j]==1;
+    }
+    static void printMaze(int[][] board, int N){
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                System.out.print(board[i][j]+ " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static boolean solveMaze(int[][] board, int i, int j, int[][] sol, int N){
+        if(i==N-1 && j==N-1 && board[i][j]==1) {
+            sol[i][j]=1;
+            return true;
+        }
+
+
+        if(isSafe(board,i,j,N)) {
+            sol[i][j] = 1;
+
+            if (solveMaze(board, i + 1, j, sol, N))
+                return true;
+            if (solveMaze(board, i, j + 1, sol, N))
+                return true;
+            sol[i][j] = 0;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[][] board={
+                {1,0,0,0},
+                {1,1,0,1},
+                {0,1,0,0},
+                {1,1,1,1}
+        };
+        int N = board.length;
+        System.out.println(ratCanReachDestination(board,N));
+
+    }
+}
+
+class LargestNumberAfterKSwaps{
+
+    public static String findMaximumNum(String str, int k)
+    {
+     //  str = recuriveSwaps(str,0,str.length()-1,k);
+
+        char[] ch =str.toCharArray();
+
+        return findmax(ch,0,k);
+    }
+
+    public static String recuriveSwaps(String str, int l, int r,int k){
+        if(k==0)
+            return str;
+        if(l==r)
+            return str;
+
+
+
+            str = new String(swap(str,l));
+        System.out.println(str);
+        recuriveSwaps(str,l+1,r,k-1);
+           str = new String(swap(str,l));
+
+
+        return str;
+
+    }
+
+    public static String findmax(char[] vals, int start, int k) {
+        if(0 == k) return String.valueOf(vals);
+        if(start == vals.length) return String.valueOf(vals);
+        char maxVal = vals[start];
+
+        for(int i = start+1; i<vals.length; i++) {
+            if(maxVal < vals[i]) {
+                maxVal = vals[i];
+            }
+        }
+
+        if(vals[start] == maxVal) {
+            return findmax(vals, start+1, k);
+        }
+
+        String max = String.valueOf(vals);
+
+        for(int i = start+1; i<vals.length; i++) {
+            if(maxVal==vals[i]) {
+                char[] newVal = vals.clone();
+                char temp = newVal[start];
+                newVal[start] = newVal[i];
+                newVal[i] = temp;
+                String newMax = findmax(newVal, start+1, k-1);
+                if(max.compareTo(newMax) < 0) {
+                    max = newMax;
+                }
+            }
+        }
+
+        return max;
+    }
+
+    public static char[] swap(String str, int i){
+        char[] ch = str.toCharArray();
+        int index=0;
+        for (int k = i; k < ch.length; k++) {
+            if(ch[i]<ch[k]){
+
+                index = k;
+            }
+        }
+        char temp = ch[i];
+        ch[i]=ch[index];
+        ch[index]=temp;
+        return ch;
+
+
+
+       // return ch;
+    }
+
+    public static void main(String[] args) {
+        String str ="1234567";
+        System.out.println(findMaximumNum(str,4));
+    }
 }
 
 public class BackTracking {
