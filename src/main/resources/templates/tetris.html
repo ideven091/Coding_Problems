@@ -281,7 +281,7 @@
             }
 
             // up arrow key (rotate)
-            if (e.which === 38) {
+            if (e.keyCode === 38) {
                 const matrix = rotate(tetromino.matrix);
                 if (isValidMove(matrix, tetromino.row, tetromino.col)) {
                     tetromino.matrix = matrix;
