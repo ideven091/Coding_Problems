@@ -225,7 +225,7 @@ class LargestNumberAfterKSwaps{
 
 
 
-            str = new String(swap(str,l));
+        str = new String(swap(str,l));
         System.out.println(str);
         recuriveSwaps(str,l+1,r,k-1);
            str = new String(swap(str,l));
@@ -289,9 +289,13 @@ class LargestNumberAfterKSwaps{
 
     public static void main(String[] args) {
         String str ="1234567";
-        System.out.println(findMaximumNum(str,4));
+        System.out.println(findMaximumNum(str,6));
     }
 }
 
+
+class NQueens{
+
+}
 public class BackTracking {
 }

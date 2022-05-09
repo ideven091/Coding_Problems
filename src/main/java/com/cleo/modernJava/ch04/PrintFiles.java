@@ -41,7 +41,7 @@ public class PrintFiles extends SimpleFileVisitor<Path> {
     }
 
     public static void main(String[] args) throws IOException {
-        Path startingDir =Path.of("/Users/admin");
+        Path startingDir =Path.of("/Users/deven/Developer/GeeksForGeeks/");
         EnumSet<FileVisitOption> opts = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
 
         PrintFiles pf = new PrintFiles();
