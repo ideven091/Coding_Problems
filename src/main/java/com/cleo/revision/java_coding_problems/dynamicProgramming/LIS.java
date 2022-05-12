@@ -1,4 +1,4 @@
-package com.cleo.java_coding_problems.dynamicProgramming;
+package com.cleo.revision.java_coding_problems.dynamicProgramming;
 
 public class LIS {
 

@@ -1,4 +1,4 @@
-package com.cleo.java_coding_problems.ch02;
+package com.cleo.revision.java_coding_problems.ch02;
 
 import java.awt.*;
 import java.util.Objects;

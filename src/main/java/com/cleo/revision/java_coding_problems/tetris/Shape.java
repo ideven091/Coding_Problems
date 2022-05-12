@@ -1,4 +1,4 @@
-package com.cleo.java_coding_problems.tetris;
+package com.cleo.revision.java_coding_problems.tetris;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.cleo.problems.backtracking;
+package com.cleo.revision.backtracking;
 
 import java.util.List;
 

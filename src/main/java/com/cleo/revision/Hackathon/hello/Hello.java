@@ -1,4 +1,4 @@
-package com.cleo.Hackathon.hello;
+package com.cleo.revision.Hackathon.hello;
 
 public class Hello {
 

@@ -1,4 +1,4 @@
-package com.cleo.java_coding_problems.item1;
+package com.cleo.revision.java_coding_problems.item1;
 
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;

@@ -1,6 +1,4 @@
-package com.cleo.java_coding_problems.easy;
-
-import java.security.spec.RSAOtherPrimeInfo;
+package com.cleo.revision.java_coding_problems.easy;
 
 public class TowersOfHanoi {
 

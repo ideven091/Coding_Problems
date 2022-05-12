@@ -1,4 +1,4 @@
-package com.cleo.java_coding_problems.item2;
+package com.cleo.revision.java_coding_problems.item2;
 
 import java.nio.file.FileSystems;
 import java.nio.file.Path;

@@ -1,6 +1,4 @@
-package com.cleo.java_coding_problems.tetris;
-
-import javax.swing.*;
+package com.cleo.revision.java_coding_problems.tetris;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
