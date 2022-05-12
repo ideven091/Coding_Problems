@@ -1,4 +1,4 @@
-package com.cleo.designPatterns.adpaterDesignPattern;
+package com.cleo.revision.designPatterns.adpaterDesignPattern;
 
 public abstract class Duck {
 

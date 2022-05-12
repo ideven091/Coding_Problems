@@ -1,4 +1,4 @@
-package com.cleo.designPatterns.factoryPattern;
+package com.cleo.revision.designPatterns.factoryPattern;
 
 import java.io.BufferedReader;
 import java.io.IOException;

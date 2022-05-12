@@ -1,4 +1,4 @@
-package com.cleo.effectiveJava.item4;
+package com.cleo.revision.effectiveJava.item4;
 
 public class HindiDictionary implements Dictionary{
 

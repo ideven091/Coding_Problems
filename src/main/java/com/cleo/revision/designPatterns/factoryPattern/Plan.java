@@ -1,4 +1,4 @@
-package com.cleo.designPatterns.factoryPattern;
+package com.cleo.revision.designPatterns.factoryPattern;
 
 public abstract class Plan {
 

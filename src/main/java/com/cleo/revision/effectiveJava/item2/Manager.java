@@ -1,4 +1,4 @@
-package com.cleo.effectiveJava.item2;
+package com.cleo.revision.effectiveJava.item2;
 
 public class Manager extends Employee{
 

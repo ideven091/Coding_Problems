@@ -1,4 +1,4 @@
-package com.cleo.databaseProgramming;
+package com.cleo.revision.databaseProgramming;
 
 import java.io.FileInputStream;
 import java.sql.*;
