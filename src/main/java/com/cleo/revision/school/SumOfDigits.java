@@ -1,10 +1,8 @@
-package com.cleo.school;
+package com.cleo.revision.school;
 
 import java.io.BufferedReader;
-import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 public class SumOfDigits {
 

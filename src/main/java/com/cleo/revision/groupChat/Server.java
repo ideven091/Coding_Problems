@@ -1,4 +1,4 @@
-package com.cleo.groupChat;
+package com.cleo.revision.groupChat;
 
 public class Server extends Thread{
 

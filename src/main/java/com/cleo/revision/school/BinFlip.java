@@ -1,4 +1,4 @@
-package com.cleo.school;
+package com.cleo.revision.school;
 
 public class BinFlip {
 
