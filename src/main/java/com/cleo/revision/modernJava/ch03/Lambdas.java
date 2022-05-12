@@ -1,4 +1,4 @@
-package com.cleo.modernJava.ch03;
+package com.cleo.revision.modernJava.ch03;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

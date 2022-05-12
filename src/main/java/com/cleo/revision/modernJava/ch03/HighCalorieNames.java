@@ -1,9 +1,9 @@
-package com.cleo.modernJava.ch03;
+package com.cleo.revision.modernJava.ch03;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.cleo.modernJava.ch03.Dish.dishes;
+import static com.cleo.revision.modernJava.ch03.Dish.dishes;
 
 public class HighCalorieNames {
 

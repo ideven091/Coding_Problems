@@ -1,10 +1,8 @@
-package com.cleo.modernJava.ch04;
+package com.cleo.revision.modernJava.ch04;
 import java.io.*;
 import java.nio.file.*;
 import java.nio.file.attribute.*;
 import static java.nio.file.FileVisitResult.*;
-import static java.nio.file.FileVisitOption.*;
-import java.util.*;
 
 
 public class Find {

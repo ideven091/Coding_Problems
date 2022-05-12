@@ -1,4 +1,4 @@
-package com.cleo.modernJava.interfaces;
+package com.cleo.revision.modernJava.interfaces;
 
 public class DefaultClass implements Default{
 

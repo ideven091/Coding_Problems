@@ -1,4 +1,4 @@
-package com.cleo.modernJava;
+package com.cleo.revision.modernJava;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.cleo.modernJava.ch02;
+package com.cleo.revision.modernJava.ch02;
 
 public class MeaningOfThis {
 

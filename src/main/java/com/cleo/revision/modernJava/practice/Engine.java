@@ -1,4 +1,4 @@
-package com.cleo.modernJava.practice;
+package com.cleo.revision.modernJava.practice;
 
 import java.util.Date;
 import java.util.Objects;

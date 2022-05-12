@@ -1,8 +1,6 @@
-package com.cleo.modernJava.ch04;
+package com.cleo.revision.modernJava.ch04;
 
-import java.io.File;
 import java.io.IOException;
-import java.lang.module.ModuleFinder;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.EnumSet;

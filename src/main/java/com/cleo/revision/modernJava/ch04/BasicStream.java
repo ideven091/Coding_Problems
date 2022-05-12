@@ -1,4 +1,4 @@
-package com.cleo.modernJava.ch04;
+package com.cleo.revision.modernJava.ch04;
 
 import java.util.Arrays;
 import java.util.List;

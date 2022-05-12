@@ -1,4 +1,4 @@
-package com.cleo.modernJava.ch15;
+package com.cleo.revision.modernJava.ch15;
 
 public class ThreadExample {
     public static int f(int x){
