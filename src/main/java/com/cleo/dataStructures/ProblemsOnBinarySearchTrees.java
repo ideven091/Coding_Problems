@@ -204,6 +204,17 @@ class BinarySearchTree{
 
 
     }
+    public boolean isSameTree(Node p, Node q) {
+        if(p==null&&q==null)
+            return true;
+        else if(p == null || q == null)
+            return false;
+        return p.data == q.data && isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+
+    }
+    public void recoverTree(Node root) {
+
+    }
     private static ArrayList<Integer> common = new ArrayList<>();
     public static ArrayList<Integer> findCommon(Node root1,Node root2)
     {
@@ -238,7 +249,8 @@ class BinarySearchTree{
         tree.insert(root,35);
         tree.inOrder2(root);
         System.out.println("Checking for binary tree");
-        System.out.println(tree.isBST(root));
+     //   System.out.println(tree.isBST(root));
+        System.out.println(tree.isSameTree(root,root));
    /*     System.out.println(search(root,4));
         System.out.println(findCommon(root,root2));
         System.out.println(tree.levelOrder(root));
