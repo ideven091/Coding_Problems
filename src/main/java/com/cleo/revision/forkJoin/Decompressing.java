@@ -1,9 +1,8 @@
-package com.cleo.forkJoin;
+package com.cleo.revision.forkJoin;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
 
 public class Decompressing {
 
