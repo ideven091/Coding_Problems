@@ -1,4 +1,4 @@
-package com.cleo.geeksForGeeks.hard;
+package com.cleo.revision.geeksForGeeks.hard;
 // { Driver Code Starts
 // Initial Template for Java
 

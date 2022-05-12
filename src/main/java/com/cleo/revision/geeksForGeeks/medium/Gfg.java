@@ -1,4 +1,4 @@
-package com.cleo.geeksForGeeks.medium;
+package com.cleo.revision.geeksForGeeks.medium;
 // { Driver Code Starts
 import java.io.*;
 import java.util.*;

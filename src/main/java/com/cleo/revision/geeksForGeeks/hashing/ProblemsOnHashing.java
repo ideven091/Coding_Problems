@@ -1,4 +1,4 @@
-package com.cleo.geeksForGeeks.hashing;
+package com.cleo.revision.geeksForGeeks.hashing;
 
 
 import java.util.*;

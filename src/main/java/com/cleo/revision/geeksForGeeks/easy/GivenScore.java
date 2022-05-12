@@ -1,4 +1,4 @@
-package com.cleo.geeksForGeeks.easy;
+package com.cleo.revision.geeksForGeeks.easy;
 // { Driver Code Starts
 // Driver Code
 import static java.lang.System.out;
