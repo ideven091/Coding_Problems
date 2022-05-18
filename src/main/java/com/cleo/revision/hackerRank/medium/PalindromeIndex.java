@@ -1,4 +1,4 @@
-package com.cleo.hackerRank.medium;
+package com.cleo.revision.hackerRank.medium;
 
 
 import java.io.*;

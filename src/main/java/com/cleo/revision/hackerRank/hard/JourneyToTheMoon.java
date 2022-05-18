@@ -1,4 +1,4 @@
-package com.cleo.hackerRank.hard;
+package com.cleo.revision.hackerRank.hard;
 import java.io.*;
 import java.util.*;
 import java.util.stream.*;

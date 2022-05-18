@@ -1,4 +1,4 @@
-package com.cleo.hackerRank.easy;
+package com.cleo.revision.hackerRank.easy;
 
 import java.io.BufferedReader;
 import java.io.IOException;

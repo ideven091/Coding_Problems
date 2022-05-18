@@ -1,9 +1,8 @@
-package com.cleo.hackerRank.hard;
+package com.cleo.revision.hackerRank.hard;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class KthLargest {
    private static int[] arr;

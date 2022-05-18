@@ -1,4 +1,4 @@
-package com.cleo.hackerRank.dynamic;
+package com.cleo.revision.hackerRank.dynamic;
 
 public class LongestCommonSubsequence {
 
