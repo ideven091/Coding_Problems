@@ -1,6 +1,8 @@
 package com.cleo.revision.dataStructures;
 
 
+import java.util.ArrayList;
+
 /**
  * Given a partially filled sudoku
  * Find an optimal solution to fill the grid using the rules of sudoku
@@ -150,6 +152,7 @@ class PermutationsOfString{
  */
 class RatInAMaze{
 
+    private static ArrayList<String> path = new ArrayList<>();
     public static boolean ratCanReachDestination(int[][] board, int N){
       int[][] sol= new int[N][N];
 
@@ -173,21 +176,30 @@ class RatInAMaze{
             System.out.println();
         }
     }
+    static boolean flag1 = false,flag2=false;
 
     static boolean solveMaze(int[][] board, int i, int j, int[][] sol, int N){
         if(i==N-1 && j==N-1 && board[i][j]==1) {
             sol[i][j]=1;
+
             return true;
         }
+
 
 
         if(isSafe(board,i,j,N)) {
             sol[i][j] = 1;
 
-            if (solveMaze(board, i + 1, j, sol, N))
+            if (solveMaze(board, i + 1, j, sol, N)) {
+                flag1=true;
+                path.add("R");
                 return true;
-            if (solveMaze(board, i, j + 1, sol, N))
+            }
+           if (solveMaze(board, i, j + 1, sol, N)) {
+                flag2=true;
+                path.add("D");
                 return true;
+            }
             sol[i][j] = 0;
         }
         return false;
@@ -202,6 +214,7 @@ class RatInAMaze{
         };
         int N = board.length;
         System.out.println(ratCanReachDestination(board,N));
+        System.out.println(path);
 
     }
 }

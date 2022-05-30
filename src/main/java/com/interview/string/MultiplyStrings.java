@@ -6,7 +6,22 @@ package com.interview.string;
 public class MultiplyStrings {
 
     public String multiply(String num1, String num2) {
-        String output = multiply(num1, num2, 0, num1.length() - 1, 0, num2.length() - 1);
+        String output="";
+        boolean flag = false;
+        if(num1.startsWith("-")&&num2.startsWith("-")){
+            num1=num1.substring(1);
+            num2 = num2.substring(1);
+        }else if(num1.startsWith("-")){
+            flag=true;
+            num1=num1.substring(1);
+        }
+        else if(num2.startsWith("-")){
+            flag=true;
+            num2=num2.substring(1);
+        }
+        output = multiply(num1, num2, 0, num1.length() - 1, 0, num2.length() - 1);
+        if(flag)
+            return "-"+output;
         return output;
     }
 
@@ -107,6 +122,6 @@ public class MultiplyStrings {
 
     public static void main(String args[]) {
         MultiplyStrings ms = new MultiplyStrings();
-        System.out.print(ms.multiply("6752716719037375654442652725945722915786612669126862029212","2840271321219335147"));
+        System.out.print(ms.multiply("6752716719037375654442652725945722915786612669126862029212","-2840271321219335147"));
     }
 }

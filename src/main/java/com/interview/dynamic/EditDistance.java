@@ -54,7 +54,7 @@ public class EditDistance {
                 }
             }
         }
-        printActualEdits(temp, str1, str2);
+       // printActualEdits(temp, str1, str2);
         return temp[str1.length][str2.length];
         
     }
@@ -93,12 +93,16 @@ public class EditDistance {
         int l = Math.min(a, b);
         return Math.min(l, c);
     }
+    public int minDistance(String word1, String word2) {
+        return dynamicEditDistance(word1.toCharArray(),word2.toCharArray());
+
+    }
 
     public static void main(String args[]){
         String str1 = "azced";
         String str2 = "abcdef";
         EditDistance editDistance = new EditDistance();
-        int result = editDistance.dynamicEditDistance(str1.toCharArray(), str2.toCharArray());
+        int result = editDistance.minDistance(str1, str2);
         System.out.print(result);
     }
 
