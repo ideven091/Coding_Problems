@@ -53,7 +53,9 @@ public class PuttingIntoPractice {
         .distinct()
         .sorted()
         .reduce("", (n1, n2) -> n1 + n2);
+    System.out.println("-----------------------");
     System.out.println(traderStr);
+    System.out.println("---------------------------");
 
     // Query 5: Are there any trader based in Milan?
     boolean milanBased = transactions.stream()

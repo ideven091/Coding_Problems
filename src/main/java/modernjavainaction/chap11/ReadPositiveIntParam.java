@@ -3,12 +3,12 @@ package modernjavainaction.chap11;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
-import static org.junit.Assert.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 
 import java.util.Optional;
 import java.util.Properties;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class ReadPositiveIntParam {
 

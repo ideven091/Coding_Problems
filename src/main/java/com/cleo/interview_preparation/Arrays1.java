@@ -2,14 +2,8 @@ package com.cleo.interview_preparation;
 
 
 
-import com.interview.binarysearch.BinarySearch;
-import edu.princeton.cs.algs4.In;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.IntStream;
 
 class Pair{
     int start;
@@ -20,7 +14,7 @@ class Pair{
     }
 }
 
-public class Arrays {
+public class Arrays1 {
 
     public static void rotate(int[] arr, int n) {
         if(n==1)

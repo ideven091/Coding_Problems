@@ -57,7 +57,7 @@ class Sudoku {
                 if (solve(grid,N))
                     return true;
                 else
-                grid[row][col] = 0;
+                    grid[row][col] = 0;
 
             }
 
