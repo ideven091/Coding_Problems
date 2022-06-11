@@ -11,7 +11,7 @@ class EditDistance {
 
         int dp[][] = new int[n+1][m+1];
         for(int[] row : dp)
-            java.util.Arrays.fill(row,-1);
+            Arrays.fill(row,-1);
 
         return f(n,m,word1,word2,dp);
     }

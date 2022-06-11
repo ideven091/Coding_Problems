@@ -2,8 +2,7 @@ package com.cleo.interview_preparation;
 
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 class Pair{
     int start;
@@ -32,6 +31,170 @@ public class Arrays1 {
 
     }
 
+    public static int[] plusOne(int[] digits) {
+        int n = digits.length;
+
+        int carry = 0;
+
+        if(digits[n-1]==9)
+            carry=1;
+        else{
+            digits[n-1]+=1;
+            return digits;
+        }
+        for (int i = n-1; i >0 ; i--) {
+            if(digits[i]==9&&carry==1) {
+                digits[i] = 0;
+              carry=1;
+            }else if(carry==1&&digits[i]!=9){
+                digits[i]+=1;
+                carry=0;
+            }else{
+                digits[i]=digits[i];
+            }
+        }
+        int[] answer = new int[n+1];
+        if(carry!=1)
+            return digits;
+        if(carry==1){
+            if(digits[0]!=9) {
+                digits[0] += 1;
+                return digits;
+            }
+            else {
+
+                digits[0] = 0;
+
+
+                answer[0]=1;
+                for (int i = 1; i < n; i++) {
+                    answer[i]=digits[i-1];
+
+                }
+
+            }
+        }
+        return answer;
+
+
+
+    }
+    public static boolean check(long A[],long B[],int N)
+    {
+        //Your code here
+        Arrays.sort(A);
+        Arrays.sort(B);
+        for (int i = 0; i < N; i++) {
+            if(A[i]!=B[i])
+                return false;
+        }
+        return true;
+    }
+    public static long minValue(long[] a, long[] b, long n)
+    {
+        // Your code goes here
+        Arrays.sort(a);
+        Arrays.sort(b);
+        long n1 = a[a.length-1];
+        long n2 = b[b.length-1];
+        long min1 = 0,min=0;
+
+            for (int i = 0; i < n; i++) {
+                min1+=a[i]*b[b.length-i-1];
+            }
+        for (int i = 0; i < n; i++) {
+            min+=a[a.length-i-1]*b[i];
+        }
+
+    //    System.out.println(min+"\t"+min1);
+        return min1;
+
+    }
+    int maxLen(int arr[], int n)
+    {
+        // Your code here
+       HashMap<Integer,Integer> map = new LinkedHashMap<>();
+        int length=0;
+        for (int e:arr) {
+
+            map.compute(e,(k,v)->v==null?1:++v);
+
+        }
+        System.out.println(map.entrySet());
+        return maxSubarrayLength(arr,n,map);
+    }
+    int maxSubarrayLength(int[] arr,int n,Map<Integer,Integer> map){
+        if(map.get(n-1)==0)
+            return n;
+        return 1;
+    }
+  static   void reverseInGroups(ArrayList<Integer> arr, int n, int k) {
+        if(k==1)
+            return;
+        // code here
+        int j=0;
+        ArrayList<Integer> answer = new ArrayList<>();
+        List<Integer> s = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+
+            j = i+k;
+            if(j<n){
+                 s = arr.stream()
+                        .limit(k)
+                        .sorted(Collections.reverseOrder())
+                        .toList();
+                ;
+                answer.addAll(s);
+                i = i+k;
+            }else{
+                j = n-i-1;
+                s = arr.stream()
+                        .sorted(Collections.reverseOrder())
+                        .toList();
+                answer.addAll(s);
+                i +=n-j;
+            }
+            System.out.println(i);
+        }
+       arr = answer;
+      System.out.println(answer);
+    }
+
+    static void reverse(ArrayList<Integer> arr,int start, int end){
+        int temp=0;
+        for (int j = start; j < (start + end)/2; j++) {
+            temp = arr.get(j);
+            arr.set(j, arr.get(end-j));
+            arr.set(end-j, temp);
+            System.out.println(arr);
+        }
+    }
+
+    static void reverseInGroupsV2(ArrayList<Integer> arr, int n, int k){
+
+        //ArrayList<Integer> temp = new ArrayList<Integer>();
+        int index = k-1,j=0;
+        int temp = 0;
+        int i=0;
+        for (i = 0; i < n; i++) {
+
+            if(index<n) {
+              reverse(arr,i,index);
+                index=i+k;
+                j+=k;
+            }
+            i+=k;
+        }
+        System.out.println(j+ " ");
+        if(index<=n){
+           // m = j;
+      //      temp.addAll(arr.subList(j,n).stream().sorted().toList());
+            reverse(arr,index,n);
+
+        }
+
+    }
+
     /**
      * Input: nums = [1,0,-1,0,-2,2], target = 0
      * Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
@@ -42,7 +205,7 @@ public class Arrays1 {
      */
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> list = new ArrayList<List<Integer>>();
-        nums = java.util.Arrays.stream(nums).sorted().toArray();
+        nums = Arrays.stream(nums).sorted().toArray();
 
 
 
@@ -155,6 +318,22 @@ public class Arrays1 {
         System.out.println(subarraySum(C,K,15));
         int[] arr = new int[]{1,2,4,7,9};
         System.out.println(searchInsert(arr,0));
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);list.add(2);list.add(3);list.add(4);list.add(5);
+        System.out.println();
+        reverseInGroupsV2(list,5,3);
+        System.out.println(list);
+        long[] x =  {6, 1, 9, 5, 4};
+        long[] y = {3, 4, 8, 2, 4};
+        int[] a = new int[]{1};
+        Arrays.sort(a);
+        System.out.println(check(x,y,3));
+        System.out.println(Arrays.toString(a));
+        System.out.println(minValue(x,y,x.length));
+        Arrays1 arrays1 = new Arrays1();
+        int[] max = {15,-2,2,-8,1,7,10,23};
+        System.out.println(arrays1.maxLen(max,max.length));
+        System.out.println(Arrays.toString(plusOne(new int[]{1,9,8})));
 
     }
 }

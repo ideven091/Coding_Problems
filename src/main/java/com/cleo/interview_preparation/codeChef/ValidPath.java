@@ -2,9 +2,6 @@ package com.cleo.interview_preparation.codeChef;
 
 
 
-import javax.naming.ldap.LdapContext;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

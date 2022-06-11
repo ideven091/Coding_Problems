@@ -1,11 +1,9 @@
 package com.cleo.interview_preparation.modernJava;
 
 import com.cleo.revision.modernJava.ch02.Predicate;
-import org.apache.commons.math3.analysis.function.Identity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Employee {

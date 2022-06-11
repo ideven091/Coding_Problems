@@ -1,6 +1,7 @@
 package com.cleo.interview_preparation;
 
-import javax.naming.*;
+import javax.naming.Context;
+import javax.naming.NamingException;
 import javax.naming.directory.*;
 import java.util.Hashtable;
 
