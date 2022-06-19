@@ -6,9 +6,64 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+class Vertex{
+    int v1, v2;
+    boolean isColored;
+
+    public Vertex() {
+    }
+}
+
+class Edge{
+    Vertex v1,v2;
+    boolean isDirected;
+
+    public Edge(Vertex v1, Vertex v2, boolean isDirected) {
+        this.v1 = v1;
+        this.v2 = v2;
+        this.isDirected = isDirected;
+    }
+
+    public Edge() {
+    }
+}
+
+class AdjacencyListNode{
+
+    AdjacencyListNode<>
+
+}
+
 public class Graph {
 
     ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
+    static int V = 4;
+    public static int[] djikstra(int graph[][], int src)
+    {
+
+        int[] dist=new int[V];int res=0;
+        Arrays.fill(dist,Integer.MAX_VALUE);dist[src]=0;
+        boolean[] fin=new boolean[V];
+
+        for (int count = 0; count < V-1 ; count++)
+        {
+            int u = -1;
+
+            for(int i=0;i<V;i++)
+                if(!fin[i]&&(u==-1||dist[i]<dist[u]))
+                    u=i;
+            fin[u] = true;
+
+            for (int v = 0; v < V; v++)
+
+                if (graph[u][v]!=0 && fin[v] == false)
+                    dist[v] = Math.min(dist[v],dist[u]+graph[u][v]);
+        }
+        return dist;
+    }
+    public int minCostConnectPoints(int[][] points) {
+
+    }
 
     public void addEdge(int u, int v, boolean isDirected){
        adj.get(u).add(v);
@@ -51,6 +106,10 @@ public class Graph {
         }
         return paths;
 
+    }
+
+    public int[] dJikstra(int[][] graph, int source){
+        AdjacencyListNode node = new AdjacencyListNode();
     }
 
 
