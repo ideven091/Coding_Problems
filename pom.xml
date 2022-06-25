@@ -70,18 +70,16 @@
             <version>1.7.36</version>
         </dependency>
         <dependency>
-<<<<<<< HEAD
 
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-reload4j</artifactId>
         <version>1.7.36</version>
     </dependency>
-=======
+    <dependency>
             <groupId>org.junit</groupId>
             <artifactId>junit</artifactId>
             <version>4</version>
         </dependency>
->>>>>>> 5b17554b842b84a4e562041b98aa5d3cd999ddcb
     <dependency>
         <groupId>org.openjdk.jmh</groupId>
         <artifactId>jmh-core</artifactId>

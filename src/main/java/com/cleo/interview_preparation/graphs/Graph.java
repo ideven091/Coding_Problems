@@ -28,11 +28,6 @@ class Edge{
     }
 }
 
-class AdjacencyListNode{
-
-    AdjacencyListNode<>
-
-}
 
 public class Graph {
 
@@ -63,6 +58,7 @@ public class Graph {
     }
     public int minCostConnectPoints(int[][] points) {
 
+        return 0;
     }
 
     public void addEdge(int u, int v, boolean isDirected){
@@ -108,9 +104,6 @@ public class Graph {
 
     }
 
-    public int[] dJikstra(int[][] graph, int source){
-        AdjacencyListNode node = new AdjacencyListNode();
-    }
 
 
     public int dfsUtil(int source, int destination, int count){
