@@ -132,6 +132,7 @@ class FileOperation {
             return false;
         } finally {
             try {
+                assert din != null;
                 din.close();
                 fin.close();
             } catch (IOException excp) {
