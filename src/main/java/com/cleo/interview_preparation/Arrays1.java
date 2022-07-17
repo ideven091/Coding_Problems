@@ -303,6 +303,27 @@ public class Arrays1 {
         list.add(-1);
         return list;
     }
+    static int maxSubsetSum(int[] arr) {
+        int sumSoFar=-1,maxSum=-1;
+        for (int i = 0; i < arr.length; i++) {
+            sumSoFar+=arr[i];
+            if(sumSoFar<0)
+                sumSoFar=0;
+            if(maxSum<=sumSoFar&& sumSoFar>arr[i] )
+                maxSum=sumSoFar;
+            else if(arr[i]>sumSoFar){
+                sumSoFar=arr[i];
+                if(maxSum<=sumSoFar)
+                    maxSum=sumSoFar;
+
+            }
+
+
+        }
+        return maxSum;
+
+
+    }
 
     public static void main(String[] args) {
         int[] A = {9, 8, 7, 6, 4, 2, 1, 3};
@@ -334,6 +355,7 @@ public class Arrays1 {
         int[] max = {15,-2,2,-8,1,7,10,23};
         System.out.println(arrays1.maxLen(max,max.length));
         System.out.println(Arrays.toString(plusOne(new int[]{1,9,8})));
+        System.out.println(maxSubsetSum(new int[]{3,7,4,6,5}));
 
     }
 }
