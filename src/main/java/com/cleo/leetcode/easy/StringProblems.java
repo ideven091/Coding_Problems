@@ -60,7 +60,7 @@ public class StringProblems {
     }
 
     public static void main(String[] args) {
-        String str = "aaabbaaccd";
+        String str = "abccbccba";
         System.out.println(removeConsecutiveDuplicates(str));
         System.out.println(removePair(str));
         String s = "A man, a plan, a canal: Panama";

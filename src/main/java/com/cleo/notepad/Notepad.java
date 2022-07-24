@@ -246,7 +246,7 @@ public class Notepad implements ActionListener, MenuConstants {
     JDialog foregroundDialog = null;
     JMenuItem cutItem, copyItem, deleteItem, findItem, findNextItem, replaceItem, gotoItem, selectAllItem;
 
-    /****************************/
+    /********So tired********************/
     Notepad() {
         f = new JFrame(fileName + " - " + applicationName);
         ta = new JTextArea(30, 60);

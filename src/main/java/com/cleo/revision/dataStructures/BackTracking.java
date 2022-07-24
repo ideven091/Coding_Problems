@@ -134,7 +134,7 @@ class PermutationsOfString{
     }
 
     public static void main(String[] args) {
-       String str = "ABCD";
+       String str = "ABC";
        permute(str,0,str.length()-1);
         System.out.println();
         System.out.println(count);

@@ -14,9 +14,9 @@ import java.util.TreeMap;
  */
 public class StringPermutation {
 
-    public List<String> permute(char input[]) {
+    public List<String> permute(String s) {
         Map<Character, Integer> countMap = new TreeMap<>();
-        for (char ch : input) {
+        for (char ch : s.toCharArray()) {
             countMap.compute(ch, (key, val) -> {
                 if (val == null) {
                     return 1;
@@ -34,7 +34,7 @@ public class StringPermutation {
             index++;
         }
         List<String> resultList = new ArrayList<>();
-        char result[] = new char[input.length];
+        char result[] = new char[s.length()];
         permuteUtil(str, count, result, 0, resultList);
         return resultList;
     }
@@ -65,6 +65,6 @@ public class StringPermutation {
 
     public static void main(String args[]) {
         StringPermutation sp = new StringPermutation();
-        sp.permute("AABC".toCharArray()).forEach(s -> System.out.println(s));
+        sp.permute("ABC").forEach(s -> System.out.print(s+ " "));
     }
 }

@@ -105,6 +105,7 @@ public class OperationOnArrays {
         int i = 0;
         for (; i < size; i++) {
             if(arr[i]>0){
+                System.out.print(arr[i]+ " ");
                 if(smallest < arr[i])
                     return smallest;
                 else if(smallest == arr[i])
@@ -117,6 +118,36 @@ public class OperationOnArrays {
         }
         return -1;
 
+    }
+
+    /**
+     * If 1 is not present, return 1
+     * Else? If 1 is present, how to find the smallest missing positive in O(n) time
+     * if 2 is present,3 occurs before it...I have given up on this question
+     * @param arr
+     * @return
+     */
+    public static int smallestPositive(int[] arr){
+        int n = arr.length;
+        boolean flag=true;
+        int smallest_positive=1,smallest_so_far=2,smallest=2;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]==smallest_positive)
+                flag=false;
+
+        }
+        if(!flag){
+            for (int i = 0; i < arr.length; i++) {
+                if(arr[i]>1){
+                    if(smallest_so_far>=arr[i])
+                        smallest_so_far=arr[i];
+
+                }
+
+
+            }
+        }
+        return 0;
     }
    public static void reverseInGroups(ArrayList<Integer> arr, int n, int k) {
         // code here
@@ -149,7 +180,7 @@ public class OperationOnArrays {
 
         int[] arr1 = {0,1};
         System.out.println(isSorted(arr1));
-        Arrays.stream(arr).forEach(n -> System.out.print(n + " "));
+        System.out.println(Arrays.toString(arr1));
         int[] arr2 = {1,2,3,4,5};
 
         System.out.println("Missing Number: "+missingNumber(arr2,arr2.length));
@@ -167,7 +198,7 @@ public class OperationOnArrays {
 
         reverseInGroups(integers,integers.size(),3);
         System.out.println("Reversed in groups");
-        integers.forEach(System.out::print);
+        System.out.println(integers);
         System.out.println();
 
     }
