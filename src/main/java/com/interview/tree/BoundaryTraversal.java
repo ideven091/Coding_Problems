@@ -1,5 +1,8 @@
 package com.interview.tree;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * http://www.geeksforgeeks.org/boundary-traversal-of-binary-tree/
  * Test cases
@@ -10,54 +13,55 @@ package com.interview.tree;
  */
 public class BoundaryTraversal {
 
+    ArrayList<Integer> boundary = new ArrayList<>();
     public void traversal(Node root){
         //find starting point for right side
         Node current = root;
         while(current != null){
             if(current.right != null && current.left != null){
-                current = current.right;
+                current = current.left;
                 break;
             }
             current = current.left != null ? current.left : current.right;
         }
-        printRightSide(current);
-        printLeaves(root);
-        printLeftSide(root);
+        addRightSide(current);
+        addLeaves(root);
+        addLeftSide(root);
     }
     
-    private void printRightSide(Node root){
+    private void addRightSide(Node root){
         if(root == null || (root.left == null && root.right == null)){
             return;
         }
-        System.out.println(root.data);
+       boundary.add(root.data);
         if(root.right != null){
-            printRightSide(root.right);
+            addRightSide(root.right);
         }else{
-            printRightSide(root.left);
+            addRightSide(root.left);
         }
     }
     
-    private void printLeftSide(Node root){
+    private void addLeftSide(Node root){
         if(root == null || (root.left == null && root.right == null)){
             return;
         }
         if(root.left != null){
-            printLeftSide(root.left);
+            addLeftSide(root.left);
         }else{
-            printRightSide(root.right);
+            addRightSide(root.right);
         }
-        System.out.println(root.data);
+       boundary.add(root.data);
     }
 
-    private void printLeaves(Node root){
+    private void addLeaves(Node root){
         if(root == null){
             return;
         }
         if(root.left == null && root.right == null){
-            System.out.println(root.data);
+            boundary.add(root.data);
         }
-        printLeaves(root.right);
-        printLeaves(root.left);
+        addLeaves(root.right);
+        addLeaves(root.left);
     }
     
     public static void main(String args[]){
@@ -73,5 +77,7 @@ public class BoundaryTraversal {
         head = bt.addNode(-7, head);
         BoundaryTraversal bd = new BoundaryTraversal();
         bd.traversal(head);
+
+        System.out.println(bd.boundary);
     }
 }

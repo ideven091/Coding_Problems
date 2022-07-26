@@ -1,6 +1,7 @@
 package com.cleo.interview_preparation.sde_sheet;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -103,6 +104,33 @@ public class StringProblems {
         return value;
 
     }
+    public static boolean isAnagram(String a,String b)
+    {
+        if(a.length()!=b.length())
+            return false;
+        int n = a.length();
+        Map<Character,Integer> map = new HashMap<>();
+        for(char c: a.toCharArray()){
+            map.merge(c, 1, Integer::sum);
+        }
+
+        for(char c: b.toCharArray()){
+            if(map.get(c)==null)
+                return false;
+            else{
+                map.put(c,map.get(c)-1);
+            }
+        }
+
+        for(Map.Entry<Character,Integer> m:map.entrySet()){
+            if(m.getValue()!=0)
+                return false;
+        }
+        return true;
+
+
+
+    }
 
     public static void main(String[] args) {
         System.out.println(longestSubstrDistinctChars("aldshflasghdfasgfkhgasdfasdgvfyweofyewyrtyefgv"));
@@ -111,5 +139,6 @@ public class StringProblems {
         System.out.println(longestSubstrDistinctChars("aewergrththy"));
         System.out.println(longestSubString("aewergrththy"));
         System.out.println(atoi("-123"));
+        System.out.println(isAnagram("allergy","allergic"));
     }
 }

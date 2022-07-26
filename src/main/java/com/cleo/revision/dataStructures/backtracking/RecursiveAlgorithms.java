@@ -1,4 +1,4 @@
-package com.cleo.revision.backtracking;
+package com.cleo.revision.dataStructures.backtracking;
 
 public class RecursiveAlgorithms {
 

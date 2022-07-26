@@ -16,7 +16,7 @@ public class ThreadExample {
         t1.start();
         t2.start();
         t1.join();t2.join();
-        System.out.println(result.left + " " + result.right);
+        System.out.println(result.left + " " + result.right +" " + t1.getId() + " " + t2.getId());
     }
 
     private static class Result{
