@@ -51,6 +51,10 @@ public class StringProblems {
         }
         return max;
     }
+
+    static String subStringSearch(String str, String pattern){
+        return null;
+    }
     static int atoi(String str) {
         // Your code here
         int value = 0;

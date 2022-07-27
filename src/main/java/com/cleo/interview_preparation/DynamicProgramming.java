@@ -1,5 +1,6 @@
 package com.cleo.interview_preparation;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 class EditDistance {
@@ -63,6 +64,32 @@ public class DynamicProgramming {
 
     int sum = 0;
 
+    public BigInteger factorial(int n){
+        BigInteger answer = BigInteger.ONE;
+        for (int i = 1; i <=n ; i++) {
+            answer=answer.multiply(BigInteger.valueOf(i));
+        }
+        return answer;
+    }
+    public int uniquePathsV2(int m, int n) {
+
+        int max = Math.max(m, n);
+        int min = Math.min(m, n);
+
+        BigInteger numerator = factorial(max);
+        BigInteger denominator = factorial(min).multiply(factorial(max-min));
+
+        BigInteger answer = numerator.divide(denominator);
+        return answer.intValue() -max;
+
+
+    }
+
+    public int uniquePathsV3(int m, int n){
+        int max = Math.max(m,n);
+        int min = Math.min(m,n);
+        return max*(max-min);
+    }
     //Recurrence Relation=
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
@@ -73,9 +100,9 @@ public class DynamicProgramming {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if(i==0)
-                    dp[i][j]=j;
+                    dp[i][j]=1;
                 else if(j==0)
-                    dp[i][j]=i;
+                    dp[i][j]=1;
                 else{
                     dp[i][j]=1+Math.max(dp[i-1][j],dp[i][j-1]);
                     paths+=1;
@@ -215,17 +242,19 @@ public class DynamicProgramming {
 
         String word1="horse",word2="horse";
         EditDistance distance = new EditDistance();
-        System.out.println(distance.minDistance(word1,word2));
-        System.out.println(distance.minDistanceV2(word1,word2));
+       // System.out.println(distance.minDistance(word1,word2));
+      //  System.out.println(distance.minDistanceV2(word1,word2));
         DynamicProgramming dp = new DynamicProgramming();
-        System.out.println(dp.uniquePaths(3,7));
+        //System.out.println(dp.uniquePaths(3,7));
         int[] cost = {10,8,6,6,20};
         int[] cost1 = {1,100,1,1,1,100,1,1,100,1};
-        System.out.println(dp.minCostClimbingStairs(cost));
-        System.out.println(dp.minCostClimbingStairs(cost1));
-        System.out.println(dp.fib(10));
-        System.out.println(dp.tribonacci(25));
+       // System.out.println(dp.minCostClimbingStairs(cost));
+       // System.out.println(dp.minCostClimbingStairs(cost1));
+      //  System.out.println(dp.fib(10));
+      //  System.out.println(dp.tribonacci(25));
         int[] nums ={2,2,3,3,3,4};
-        System.out.println(dp.deleteAndEarn(nums));
+      //  System.out.println(dp.deleteAndEarn(nums));
+        System.out.println(dp.factorial(50));
+        System.out.println(dp.uniquePaths(7,5));
     }
 }
